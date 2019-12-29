@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: LET US GO ABROAD
 subtitle: ''
-description: ''
+description: 'a blog for game programmer'
 keywords:
-author: John Doe
+author: MinCheon Bae
 language: en
-timezone: ''
+timezone: Asia/Seoul
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
