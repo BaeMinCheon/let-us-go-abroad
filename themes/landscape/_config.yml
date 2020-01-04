@@ -29,6 +29,8 @@ show_count: false
 
 # Miscellaneous
 google_analytics:
+  tracking_id: UA-145383918-1
+  localhost_ignored: true
 gauges_analytics:
 favicon: /favicon.png
 twitter:
