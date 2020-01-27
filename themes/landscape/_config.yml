@@ -28,9 +28,7 @@ archive_type: 'monthly'
 show_count: false
 
 # Miscellaneous
-google_analytics:
-  tracking_id: UA-145383918-1
-  localhost_ignored: true
+google_analytics: UA-145383918-1
 gauges_analytics:
 favicon: /favicon.png
 twitter:
