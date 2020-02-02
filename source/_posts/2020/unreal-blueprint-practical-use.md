@@ -142,7 +142,7 @@ BlueprintImplementableEvent
     - with blueprint, we can keep going unless shuting down the editor
 
 {% asset_img 11.jpg %}
-</br>d
+</br>
 {% asset_img 12.jpg %}
 
 - oh, the `Target` is `None`
