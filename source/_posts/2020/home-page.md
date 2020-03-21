@@ -1,7 +1,7 @@
 ---
 title: home-page
 date: 2020-02-03 00:27:08
-tags: Home
+tags: [Home, About]
 ---
 
 ### _Career_
