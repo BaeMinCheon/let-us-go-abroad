@@ -1,7 +1,7 @@
 ---
 title: unreal-blueprint-practical-use
 date: 2020-01-28 23:59:47
-tags: [Unreal, Blueprint, HotReload, BlueprintImplementableEvent]
+tags: [UnrealEngine, Blueprint, HotReload, BlueprintImplementableEvent]
 ---
 
 - this post covers

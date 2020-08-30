@@ -1,7 +1,7 @@
 ---
 title: unreal-unique-pointer
 date: 2020-03-14 21:47:31
-tags: [Unreal, SmartPointer]
+tags: [UnrealEngine, SmartPointer, UniquePointer]
 ---
 
 - this post covers
