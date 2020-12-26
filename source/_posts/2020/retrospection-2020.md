@@ -82,6 +82,6 @@ Play Station 5 has been released in recent. Sony planned to celebrate the event 
 
 {% asset_img 08.jpg %}
 
-This year, I leave some regrets that I should have done more things. I should have met more people and read books. But...the lethargy from the crisis, everyone may have felt this. I cannot asset it did not affect me. People around me seems sometimes sad and depressed, too. What was worse, we end up this year as bad situation with high amount of patients. It is hard to believe next year would be better.
+This year, I leave some regrets that I should have done more things. I should have met more people and read books. But...the lethargy from the crisis, everyone may have felt this. I cannot assert it did not affect me. People around me seems sometimes sad and depressed, too. What was worse, we end up this year as bad situation with high amount of patients. It is hard to believe next year would be better.
 
 Somebody said, "The World Never Be The Same". At first of this year, I did not agree the words. Because I could not imagine the new world. But...we going to the new world anyway, and it seems we must adapt. Even this year is said the most terrible one, I think we should remember it. To look back to stop this tragedy. We gotta be worry about how to adapt new world and how to live next year, based on new rules.
