@@ -1,5 +1,5 @@
 ---
-title: home-page
+title: Homepage
 date: 2020-02-03 00:27:08
 tags: [Home, About]
 ---

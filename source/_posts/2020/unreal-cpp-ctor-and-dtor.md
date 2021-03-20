@@ -1,5 +1,5 @@
 ---
-title: unreal-cpp-ctor-and-dtor
+title: CPP ctor and dtor in UnrealEngine
 date: 2020-03-01 21:15:46
 tags: [UnrealEngine]
 ---

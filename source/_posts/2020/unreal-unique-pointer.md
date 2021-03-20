@@ -1,5 +1,5 @@
 ---
-title: unreal-unique-pointer
+title: UnrealEngine unique pointer
 date: 2020-03-14 21:47:31
 tags: [UnrealEngine, SmartPointer, UniquePointer]
 ---

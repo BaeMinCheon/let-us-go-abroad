@@ -1,5 +1,5 @@
 ---
-title: differences-of-unreal-build-targets
+title: Differences in UnrealEngine build targets
 date: 2019-08-16 00:13:26
 tags: [UnrealEngine]
 ---

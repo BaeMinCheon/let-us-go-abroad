@@ -1,5 +1,5 @@
 ---
-title: shared-folder-in-wsl
+title: Shared folder in WSL
 date: 2019-08-19 00:57:29
 tags: [WSL]
 ---

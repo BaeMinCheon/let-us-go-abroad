@@ -1,5 +1,5 @@
 ---
-title: unreal-linux-server-build
+title: UnrealEngine linux server build
 date: 2019-08-19 00:46:45
 tags: [UnrealEngine, Linux, WSL]
 ---
