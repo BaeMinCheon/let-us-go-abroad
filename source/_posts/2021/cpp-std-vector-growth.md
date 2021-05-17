@@ -592,7 +592,7 @@ Common
     - Currently available size = `End - Current`
 
 MSVC
-- Growth happens with 3/2 times of amount.
+- Growth happens with 3/2 times of amount. (in normal case)
 
 GCC
-- Growth happens with 2 times of amount.
+- Growth happens with 2 times of amount. (in normal case)
