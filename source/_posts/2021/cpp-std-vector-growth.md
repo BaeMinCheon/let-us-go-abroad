@@ -1,5 +1,5 @@
 ---
-title: cpp-std-vector-growth
+title: Growth of `std::vector`
 date: 2021-05-16 21:35:54
 tags: [CPP, MSVC, GCC, STL]
 ---
