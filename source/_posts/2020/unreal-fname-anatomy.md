@@ -1,7 +1,7 @@
 ---
 title: UnrealEngine FName anatomy
 date: 2020-01-17 00:09:22
-tags: [UnrealEngine, FName]
+tags: [UnrealEngine]
 ---
 
 - this post covers

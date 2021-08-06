@@ -1,7 +1,7 @@
 ---
 title: Differences between Build.cs and Target.cs in UnrealEngine
 date: 2021-04-07 22:52:46
-tags: [UnrealEngine, Build.cs, Target.cs]
+tags: [UnrealEngine]
 ---
 
 - this post covers

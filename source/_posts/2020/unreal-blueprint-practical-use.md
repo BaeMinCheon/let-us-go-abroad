@@ -1,7 +1,7 @@
 ---
 title: Practical usage of BlueprintImplementableEvent in UnrealEngine
 date: 2020-01-28 23:59:47
-tags: [UnrealEngine, Blueprint, HotReload, BlueprintImplementableEvent]
+tags: [UnrealEngine, Blueprint]
 ---
 
 - this post covers

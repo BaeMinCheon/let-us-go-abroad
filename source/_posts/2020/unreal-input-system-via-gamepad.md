@@ -1,7 +1,7 @@
 ---
 title: Gamepad input process in UnrealEngine
 date: 2020-10-25 18:11:09
-tags: [UnrealEngine, Input]
+tags: [UnrealEngine]
 ---
 
 - this post covers
