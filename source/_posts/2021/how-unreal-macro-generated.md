@@ -346,7 +346,7 @@ C/CPP code with generated code(+macro) from UHT and UBT ---(preprocessor)--->
 C/CPP code with evaluated code from macro ---(rest of job)---> ...
 ```
 
-There are so mnay hidden code for implementing unreal macros, and the macros have complicated relationship with other engine code. Even most part of final code from the macros cannot be evaluated before some preprocessing and compilation. In this perspective, unreal macro such as `UCLASS` is not a pure C/CPP macro, because unreal macro functions fully only when UHT and UBT must preprocess the macro.
+There are so many hidden code for implementing unreal macros, and the macros have complicated relationship with other engine code. Even most part of final code from the macros cannot be evaluated before some preprocessing and compilation. In this perspective, unreal macro such as `UCLASS` is not a pure C/CPP macro, because unreal macro functions fully only when UHT and UBT must preprocess the macro.
 
 {% asset_img 07.png %}
 
