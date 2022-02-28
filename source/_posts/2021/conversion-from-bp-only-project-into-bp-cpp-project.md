@@ -90,7 +90,7 @@ As you see, UnrealEngine finds template files from the path; `Root/Templates/`.
 
 {% asset_img 06.png %}
 
-There are many folders for each template, and now we found. The `TP_Blank` and `TP_BlankBP. The templates contain a uproject file, which is used for making new uproject file while creating new project using template.
+There are many folders for each template, and now we found. The `TP_Blank` and `TP_BlankBP`. The templates contain a uproject file, which is used for making new uproject file while creating new project using template.
 
 {% asset_img 07.png %}
 
