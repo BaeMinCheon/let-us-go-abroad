@@ -536,7 +536,7 @@ void FTextLayout::CreateLineWrappingCache(FLineModel& LineModel)
 }
 ```
 
-In this function, we found some variables that have a name of `LineBreak` at last. Let us check what the line break iterator does.
+In this function, we found some variables that have a name of `LineBreak`. Let us check what the line break iterator does.
 
 ```cpp
 TSharedRef<IBreakIterator> FBreakIterator::CreateLineBreakIterator()
@@ -545,7 +545,7 @@ TSharedRef<IBreakIterator> FBreakIterator::CreateLineBreakIterator()
 }
 ```
 
-The `LinBreakIterator` is a line break iterator using the implementation of [ICU(International Components for Unicode)'s break iterator](https://github.com/unicode-org/icu/blob/main/icu4c/source/common/unicode/brkiter.h). The break iterator does a job of finding a location of boundaries in text. Visit [here](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/classicu_1_1BreakIterator.html#details) for more details. To summarize, the break iterator can find where each word ends. For example, we have a text of `Text Block Test` and the break iterator can find locations just like this `Text(HERE) Block(HERE) Test(HERE)`. So, let us see how it works.
+The `LinBreakIterator` is a line break iterator using the implementation of [ICU(International Components for Unicode)'s break iterator](https://github.com/unicode-org/icu/blob/main/icu4c/source/common/unicode/brkiter.h). The break iterator does a job of finding a location of boundaries in text. Visit [here](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/classicu_1_1BreakIterator.html#details) for more details. To summarize, the break iterator can find where each word ends. For example, we have a text of `Text Block Test` and the break iterator can find locations just like this `Text (HERE)Block (HERE)Test(HERE)`. So, let us see how it works.
 
 ```cpp
 int32 FICULineBreakIterator::MoveToNextImpl()
@@ -707,7 +707,7 @@ FTextLayout::FBreakCandidate FTextLayout::CreateBreakCandidate( int32& OutRunInd
 }
 ```
 
-The `CreateBreakCandidate()` function is quite big size, about 200 lines. But the core of function is to calculate a size of slice. Do you remember the variable `CurrentBreak` that indicates next word ? Here, the function make a slice according to `CurrentBreak` and trim it. Trimming happens in while statement, which decreases the `WhitespaceStopIndex` until it indicates an end of last word.
+The `CreateBreakCandidate()` function is quite big size, about 200 lines. But the core of function is to calculate a size of slice. Do you remember the variable `CurrentBreak` that indicates where each slice ends ? Here, the function make a slice according to `CurrentBreak` and trim it. Trimming happens in `while` statement, which decreases the `WhitespaceStopIndex` until it indicates an end of last word.
 
 {% asset_img 04.png %}
 
@@ -807,7 +807,7 @@ FShapedGlyphSequenceRef FShapedTextCache::AddShapedText(const FCachedShapedTextK
 }
 ```
 
-First, engine try to find if there is already existing one. If not, create new one and insert it into the cache.
+First, engine tries to find if there is already existing one. If not, creates new one and insert it into the cache.
 
 ```cpp
 // FontCache.h
@@ -961,7 +961,7 @@ You can see that the same character has the same XAdvance value. For example, Th
 
 {% asset_img 06.png %}
 
-The final width may differ a little bit because some combination of characters need a kerning. For example, though `e` and `k` have the same XAdvance value `17`, a combination `Te` has less size than a combination `Tk`. Because in the combination `Te`, `e` can stick to `T` closer than `k` in `Tk`. In other words, a character `T` can have XAdvance of `17` in the combinations such as `Ta/Tc/Td`, and so on. Otherwise such as `Tb/Tf/Th`, it can have XAdvance of `18`.
+The final width may differ a little bit because some combination of characters need a kerning. For example, though `e` and `k` have the same XAdvance value `17`, a combination `Te` has a small size than a combination `Tk`. Because in the combination `Te`, `e` can stick to `T` closer than `k` in `Tk`. In other words, a character `T` can have XAdvance of `17` in the combinations such as `Ta/Tc/Td`, and so on. Otherwise such as `Tb/Tf/Th`, it can have XAdvance of `18`.
 
 # _`Break lines (3/3); Creating lines with wrapping`_
 
