@@ -161,10 +161,6 @@ BlueprintImplementableEvent
     - this development process can improve your productivity
 - the rest of work is converting the blueprint things into cpp code
 
-{% asset_img 16.jpg %}
-
-- you can find cpp implementation in [here](https://github.com/BaeMinCheon/unreal-project-sandbox/commits/master)
-
 ### wrap-up
 - `Hot Reload` is fast enough to develop personal project
     - if you do not take much time to compile cpp, there is no significant benefits to using blueprint
