@@ -139,6 +139,20 @@ I have written a custom decorator for this example, the `URichTextBlockSomeWidge
 And the followings are the major changes.
 
 ```cpp
+public class TestRichTextBlock : ModuleRules
+{
+	public TestRichTextBlock(ReadOnlyTargetRules Target) : base(Target)
+	{
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "UMG", "Slate", "SlateCore" });
+	}
+}
+```
+
+You must add the modules at your `Build.cs`: `UMG`, `Slate`, and `SlateCore`.
+
+```cpp
 bool FRichInlineSomeWidget::Supports(const FTextRunParseResults& RunParseResult, const FString& Text) const
 {
 	bool Result = false;
