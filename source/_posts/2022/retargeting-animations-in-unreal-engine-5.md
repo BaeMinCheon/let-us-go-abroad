@@ -154,7 +154,7 @@ After the work for all fingers, it should look like this video.
 
 Sometimes, you might want to retarget animations but two skeleton are different each other. Suppose you have a skeleton of pose A, and a skeleton of pose T.
 
-{% youtube nQS_ecHXdKw %}
+{% youtube w9triL2bnVY %}
 
 In this situation, the retargeted animations look weird even you set the chains well. Just like the video. Oh...it is like the necromorph in the Dead Space...😱 It happens due to the pose, the two skeletons are different on the pose. You should edit one's pose so that they have the same pose.
 
