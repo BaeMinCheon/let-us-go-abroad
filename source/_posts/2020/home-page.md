@@ -21,4 +21,4 @@ Media | URL
 Github | https://github.com/BaeMinCheon
 Facebook | https://www.facebook.com/Thanyang/
 Email | baemincheon@gmail.com
-Twitter | https://twitter.com/RossBaemincheon
+Twitter | https://twitter.com/Ross_Public_
