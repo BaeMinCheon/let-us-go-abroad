@@ -97,7 +97,7 @@ concept: 데이터가 인공지능의 동작을 정의
 비효율적인 학습 전략
 대규모 데이터셋의 부재
 
-{% asset_img 12.png %}
+{% asset_img 12_high.png %}
 
 초기 머신러닝과 딥러닝의 비교
 2012년부터, 딥러닝 기반 인공지능이 I.L.S.V.R.C. 기반 인공지능을 이김
@@ -216,35 +216,148 @@ x 에 대한 편미분값은 1 이고, y 에 대한 편미분값은 1
 
 {% asset_img 26.png %}
 
-퍼셉트론 학습 준비 완료
 최종 f 값을 바꾸기 위한, x y z 미분값들을 모두 구할 수 있음
 (최종 f 값이, 0 에 가까워져 가는 것 확인 가능)
 당연하게도, 원한다면 step size 값을 음수 사용하는 것도 고려해볼 수 있음
 주로, step size 는 0.01 같은 매우 작은 값이 사용됨
 예시에서는, 극적인 변화 위해 0.1 로 사용하였음
 
+이제 퍼셉트론 배우기 위한 배경지식은 준비되었음 (3장 내용)
+
 2장의 내용은 소스코드로도 확인 및 직접 실행해볼 수 있음
 https://github.com/BaeMinCheon/introduction-to-ai/tree/master/Chapter02
 
 {% asset_img 27.png %}
+
+.
+
 {% asset_img 28.png %}
+
+퍼셉트론이란
+계산에 필요한 가중치 변수들을 보유하는 노드
+인공신경망에서의 노드 하나하나를 지칭하는 용어이기도 함
+뉴런처럼, 활성화함수를 가짐
+활성화함수는 (자신에게 연결된 다른 퍼셉트론에게) 어떻게 값이 전달될 지 결정하는 역할 수행
+(곱하기, 더하기, 활성화함수 순서는 예시일 뿐. 경우에 따라 다른 구조를 가질 수 있음)
+
+{% katex %} input: x_1 + x_2 + ... \\ {% endkatex %}
+{% katex %} output: f(x_1 \cdot w_1 + x_2 \cdot w_2 + ...) \quad (f \space is \space for \space activate \space function) \\ {% endkatex %}
+
 {% asset_img 29.png %}
+
+단일 퍼셉트론이 할 수 있는 것
+단일 퍼셉트론은 최대 2가지 종류의 데이터를 분류 가능
+1가지 종류 데이터 분류일 경우, Linear Regression (다음 슬라이드에서 다룰 것)
+2가지 종류 데이터 분류일 경우, Binary Classification (또는, Linear Classification)
+다시 말해, 단일 퍼셉트론만으로 2가지 초과 데이터를 분류 불가능
+이것을 해결하기 위해, 다중 퍼셉트론을 추후 이야기할 것임
+
 {% asset_img 30.png %}
+
+Linear Regression 이란
+(데이터를 가로질러) 비용 최소화 선을 그릴 수 있는 알고리듬
+여기에서의 비용이란, 오차들의 합산
+예측 모델을 얻는 방법으로도 볼 수 있음
+Gradient Descent 의 좋은 활용 예시이기도 함
+
 {% asset_img 31.png %}
+
+퍼셉트론으로 간단한 예제 구현
+입출력값이 각각 1, 2, 3 으로 주어졌을 때 퍼셉트론이 이들을 제일 적은 비용으로 가로지를 수 있도록 학습시켜보자
+참고로, bias 라고 하여 가중치를 하나 더 조절할 수 있는 placeholder 를 사용하곤 함 (경험/관습적으로 유용하기 때문)
+즉, 다음과 같은 입출력값이 예상되고 각 출력값은 1, 2, 3 에 가까워져야함
+
+{% katex %} input: 1, 2, 3 \\ {% endkatex %}
+{% katex %} output: w_1 + w_2, 2w_1 + w_2, 3w_1 + w_2 <=> w_1 + b, 2w_1 + b, 3w_1 + b \\ {% endkatex %}
+
 {% asset_img 32.png %}
+
+이 퍼셉트론을 어떻게 학습시키는가
+모든 가중치 값들은 1 로 설정하자
+매 계산마다 비용 값을 계산해야할 것
+그리고 Gradient Descent 통해 그 비용을 줄여나갈 것
+가중치 값을 변경함으로써 이를 실현할 것
+
 {% asset_img 33.png %}
+
+어떻게 Gradient Descent 를 적용하나
+우리는 비용을 줄이고 싶은 것이지, 출력값 자체를 0 으로 만들고 싶은 게 아니다
+따라서, 앞서 G.D. 예시들처럼 다룰 경우 결과값이 0 으로만 만들어지고 말 것
+그러므로, 결과값으로부터 비용 계산하는 함수 만들 필요 있음
+이를 Error Function 이라 부름
+(Error Function 붙인 채로 학습을 진행하고,) 학습 완료 후 Error Function 을 제거한 뒤, 모델 그 자체만 사용하면 되는 방식
+
 {% asset_img 34.png %}
+
+(확률과 통계에서의 분산 공식과 유사하며, 의미 또한 그와 동일함)
+매 학습마다 모든 데이터를 사용해야함
+Error Function 식 자체가 모든 데이터를 참조하기 때문 (sum from 1 to N)
+다시 말해, Error Function 은 모든 데이터가 처리되고 나서 수행될 것임
+(개별 데이터에 휘둘리지 않고,) 일관성 있게 가중치 변수를 조절할 수 있게 될 것
+이전 예시에서는 우리가 직접 수행했던 부분임
+(편의상 Error Function 을 편미분한 값을 GDx 라고 하자) 이를 사용하면 역전파도 할 수 있으니, 가중치 변수 x 를 조정할 수 있을 것
+(아래 내용은 GDx 구하는 과정)
+
+{% katex %} error = \frac{1}{2N} \displaystyle\sum_{i=1}^{N}(output_i - data_i)^2 \\ {% endkatex %}
+{% katex %} \to \frac{1}{\partial x} \cdot error = \frac{\partial error}{\partial x} = \frac{1}{\partial x} (\frac{1}{2N} \displaystyle\sum_{i=1}^{N}(output_i - data_i)^2) \\ {% endkatex %}
+{% katex %} = \frac{1}{\partial x} (\frac{1}{2N} \displaystyle\sum_{i=1}^{N}(output_i^2 - 2 \cdot output_i \cdot data_i + data_i^2)) \\ {% endkatex %}
+{% katex %} = \frac{1}{2N} \displaystyle\sum_{i=1}^{N}(2 \cdot output_i \cdot \frac{\partial output_i}{\partial x} - 2 \cdot data_i \cdot \frac{\partial output_i}{\partial x} + 0 \cdot \frac{\partial output_i}{\partial x}) \\ {% endkatex %}
+{% katex %} = \frac{1}{2N} \cdot 2 \displaystyle\sum_{i=1}^{N}(output_i \cdot \frac{\partial output_i}{\partial x} - data_i \cdot \frac{\partial output_i}{\partial x}) \\ {% endkatex %}
+{% katex %} = \frac{1}{N} \displaystyle\sum_{i=1}^{N}(output_i - data_i) \frac{\partial output_i}{\partial x} \\ {% endkatex %}
+
 {% asset_img 35.png %}
+
+가중치 수정 방향을 (+ 또는 -) 어떻게 결정하는가
+지금까지 알아본 내용들 기반으로, G.D. 방법론으로 결과값을 0 에 가깝게 만들 수 있음
+여기에 Error Function 을 추가하면, 우리가 원하는 값을 나오게 만들 수도 있을 것임
+Error Function 을 거치는 과정에서, 제곱 연산 때문에 무조건 양수 값이 나올 것
+따라서, 우리는 Error Function 값이 0 에 가까워지도록 줄이기만 (minus) 하면 됨. 어차피 음수 값이 나올 수 없기 때문
+(사진은 제곱 함수의 특성 설명 예시일 뿐. 이번 예시의 Error Function 을 그래프로 그린 것이 아님)
+
 {% asset_img 36.png %}
+
+퍼셉트론의 출력값 g 에 대한, 가중치들의 편미분값은 앞서 봐왔던 방식대로 구할 수 있음
+{% katex %} g(x) = w_1 x + w_2 = w x + b {% endkatex %} 에서, 당연하게도 서로에게 곱해지는 값이 곧 편미분임
+(w 입장에서는 x, b 입장에서는 1)
+
+{% katex %} \frac{\partial g}{\partial w} = x = \frac{\partial output}{\partial w}, \quad \frac{\partial g}{\partial b} = 1 = \frac{\partial output}{\partial b} {% endkatex %} 일 때, </br>
+{% katex %} g(1) = 2, \quad g(2) = 3, \quad g(3) = 4 {% endkatex %} 이므로 GDw 및 GDb 는 다음과 같이 구해질 수 있음 </br></br>
+
+{% katex %} GD_w = \frac{1}{N} \displaystyle\sum_{i=1}^{N}(output_i - data_i) \frac{\partial output_i}{\partial w} \\ {% endkatex %}
+{% katex %} = \frac{1}{3} \displaystyle\sum_{i=1}^{3}(output_i - data_i) \frac{\partial output_i}{\partial w} \\ {% endkatex %}
+{% katex %} = \frac{1}{3} ((2 - 1) \cdot 1 + (3 - 2) \cdot 2 + (4 - 3) \cdot 3) = \frac{1}{3} (1 + 2 + 3) = 2 \\ {% endkatex %}
+
+{% katex %} GD_b = \frac{1}{N} \displaystyle\sum_{i=1}^{N}(output_i - data_i) \frac{\partial output_i}{\partial b} \\ {% endkatex %}
+{% katex %} = \frac{1}{3} \displaystyle\sum_{i=1}^{3}(output_i - data_i) \frac{\partial output_i}{\partial b} \\ {% endkatex %}
+{% katex %} = \frac{1}{3} ((2 - 1) \cdot 1 + (3 - 2) \cdot 1 + (4 - 3) \cdot 1) = \frac{1}{3} (1 + 1 + 1) = 1 \\ {% endkatex %}
+
+여기에서, 가중치 값들에 대해 GDw 및 GDb 를 step size 만큼 조정된 값으로 빼주기만 해도, 다음 번 Error Function 값이 떨어질 것임
+
 {% asset_img 37.png %}
-{% asset_img 38.png %}
+
+2번째 입력과 3번째 입력을 순서대로 확인해보자
+g(x) 값이 점점 y = x 꼴에 맞춰가는 걸 알 수 있음
+
+{% asset_img 38_high.png %}
+
+G.D. 같은 알고리듬이 잘 동작하는 예시를 살펴봤는데, 어디까지나 잘 준비된 예시일 뿐 실제로는 문제 발생하기 쉬운 것이 인공지능 학습임
+우리가 살펴봤던 step size = 0.1 예시의 경우, 가중치 값이 조절되면서 비용(error) 수치도 줄어드는 걸 알 수 있었음
+하지만 반대로 step size = 1 로 설정했을 경우, 비용 수치가 줄기는 커녕 늘어나는 현상을 볼 수 있음
+({% katex %} e^{11} {% endkatex %} 같이 무지막지하게 큰 수까지 올라가버림)
+따라서, 적절한 초기 가중치 값과 step size 수치 설정이 중요함. 이는 여러 차례 시도하며 경험해보는 게 일반적
+
 {% asset_img 39.png %}
+
+직전 슬라이드에서 보았던, 비용 수치가 오히려 증가하는 경우가 곧 Overshooting
+하지만, step size 가 지나치게 작을 경우 국소적인 해 ㅡsolutionㅡ 에서 벗어나지 못할 수 있음
+(국소적인 해에서 벗어나고자 가중치 값을 수정해보지만, 비용 수치가 증가하니 다시 되돌아가려는 동작을 해서 도루묵이 됨)
+
 {% asset_img 40.png %}
 {% asset_img 41.png %}
 {% asset_img 42.png %}
 {% asset_img 43.png %}
 {% asset_img 44.png %}
-{% asset_img 45.png %}
+{% asset_img 45_high.png %}
 {% asset_img 46.png %}
 {% asset_img 47.png %}
 {% asset_img 48.png %}
@@ -258,7 +371,7 @@ https://github.com/BaeMinCheon/introduction-to-ai/tree/master/Chapter02
 {% asset_img 56.png %}
 {% asset_img 57.png %}
 {% asset_img 58.png %}
-{% asset_img 59.png %}
+{% asset_img 59_high.png %}
 {% asset_img 60.png %}
 {% asset_img 61.png %}
 {% asset_img 62.png %}
